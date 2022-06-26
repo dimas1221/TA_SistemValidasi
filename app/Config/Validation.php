@@ -2,13 +2,12 @@
 
 namespace Config;
 
-use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Validation\CreditCardRules;
 use CodeIgniter\Validation\FileRules;
 use CodeIgniter\Validation\FormatRules;
 use CodeIgniter\Validation\Rules;
 
-class Validation extends BaseConfig
+class Validation
 {
     //--------------------------------------------------------------------
     // Setup
@@ -25,7 +24,7 @@ class Validation extends BaseConfig
         FormatRules::class,
         FileRules::class,
         CreditCardRules::class,
-        \Myth\Auth\Authentication\Passwords\ValidationRules::class
+        \Myth\Auth\Authentication\Passwords\ValidationRules::class,
     ];
 
     /**
