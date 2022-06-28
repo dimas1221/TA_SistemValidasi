@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
         <div class="section-body">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-8">
+                    <div class="col-sm-7 offset-sm-0">
                         <div class="card">
                             <div class="card-body">
                                 <form action="" method="post" enctype="multipart/form-data">
@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
                                         </button>
                                         <label for="pdf_file" class="label" style="font-size: medium;"></label>
                                     </div>
-                                    <input type="submit" name="submit" class="btn btn-success mb-3" value="Validasi">
+                                    <input type="submit" name="submit" class="btn btn-light mb-3" value="Validasi">
                                 </form>
 
                                 <hr>
@@ -626,7 +626,7 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-sm-5 offset-sm-0">
 
                         <form action="/validasi/save" method="POST" enctype="multipart/form-data">
                             <?= csrf_field(); ?>
@@ -667,47 +667,40 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div> -->
                         <hr>
-                        <div class="container">
-                            <div class="row justify-content-center scrollspy-example">
-                                <div class="col">
-                                    <h5 class="text-info">Aspek yang di lihat</h5>
-                                    <p class="text-info">IPK minimal 2.5</p>
-                                    <p><i class="<?= $ipk ?>"></i> Index Prestasi Kumulatif(IPK)</p>
-                                    <p class="text-info">SKS yang di tempuh minimal 138</p>
-                                    <p><i class="<?= $sks ?>"></i> Total Sks</p>
-                                    <p class="text-info">lulus MK KP dan Setik</p>
-                                    <p><i class="<?= $kp ?>"></i> Kerja Praktik</p>
-                                    <p><i class="<?= $setik ?>"></i> Seminar Tematik</p>
-                                    <p class="text-info">Mk wajib minimal C</p>
-                                    <!-- <p><i class="< $mkX ?>"></i> Mata kuliah X</p> -->
-                                    <p><i class="<?= $mkAgama ?>"></i> Agama</p>
-                                    <p><i class="<?= $mkBindo ?>"></i> Bahasa Indonesia</p>
-                                    <p><i class="<?= $mkKwn ?>"></i> Kewarganegaaan</p>
-                                    <p class="text-info">Mk wajib minimal B</p>
-                                    <p><i class="<?= $mkBing1 ?>"></i> Bahasa Inggris I(Integrated)</p>
-                                    <p><i class="<?= $mkBing2 ?>"></i> Bahasa Inggris II(Communicative)</p>
-                                    <p><i class="<?= $mkapti1 ?>"></i> Aplikasi Teknologi Informasi I</p>
-                                    <p><i class="<?= $mkapti2 ?>"></i> Aplikasi Teknologi Informasi II</p>
-                                    <p><i class="<?= $mkKwu ?>"></i> Kewirausahaan</p>
-                                    <p><i class="<?= $mkPK ?>"></i> Pengembangan Kepribadian</p>
-                                    <p><i class="<?= $dwPratik ?>"></i> Desain Web Praktik</p>
-                                    <p><i class="<?= $sbdPraktik ?>"></i> Sistem Basis Data Praktik</p>
-                                    <p><i class="<?= $soPraktik ?>"></i> Sistem Operasi Praktik</p>
-                                    <p><i class="<?= $strukturDataPraktik ?>"></i> Struktur Data Praktik</p>
-                                    <p><i class="<?= $jarkomPraktik ?>"></i> Jaringan Komputer Praktik</p>
-                                    <p><i class="<?= $pboPraktik ?>"></i> PBO Praktik</p>
-                                    <p><i class="<?= $pwPraktik ?>"></i> Pemrograman Web Praktik</p>
-                                    <p><i class="<?= $sbdlPraktik ?>"></i> SBDL Praktik</p>
-                                    <p><i class="<?= $pmPraktik ?>"></i> Pemrograman Mobile Praktik</p>
-                                    <p class="text-info">Total nilai D maksimal 14 sks</p>
-                                    <p><i class="<?= $presentaseD ?>"></i> Total nilai D <?= $hasilD ?> SKS</p>
-                                </div>
-                            </div>
-                        </div>
+                        <h5 class="text-info">Aspek yang di lihat</h5>
+                        <p class="text-info">IPK minimal 2.5</p>
+                        <p><i class="<?= $ipk ?>"></i> Index Prestasi Kumulatif(IPK)</p>
+                        <p class="text-info">SKS yang di tempuh minimal 138</p>
+                        <p><i class="<?= $sks ?>"></i> Total Sks</p>
+                        <p class="text-info">lulus MK KP dan Setik</p>
+                        <p><i class="<?= $kp ?>"></i> Kerja Praktik</p>
+                        <p><i class="<?= $setik ?>"></i> Seminar Tematik</p>
+                        <p class="text-info">Mk wajib minimal C</p>
+                        <!-- <p><i class="< $mkX ?>"></i> Mata kuliah X</p> -->
+                        <p><i class="<?= $mkAgama ?>"></i> Agama</p>
+                        <p><i class="<?= $mkBindo ?>"></i> Bahasa Indonesia</p>
+                        <p><i class="<?= $mkKwn ?>"></i> Kewarganegaaan</p>
+                        <p class="text-info">Mk wajib minimal B</p>
+                        <p><i class="<?= $mkBing1 ?>"></i> Bahasa Inggris I(Integrated)</p>
+                        <p><i class="<?= $mkBing2 ?>"></i> Bahasa Inggris II(Communicative)</p>
+                        <p><i class="<?= $mkapti1 ?>"></i> Aplikasi Teknologi Informasi I</p>
+                        <p><i class="<?= $mkapti2 ?>"></i> Aplikasi Teknologi Informasi II</p>
+                        <p><i class="<?= $mkKwu ?>"></i> Kewirausahaan</p>
+                        <p><i class="<?= $mkPK ?>"></i> Pengembangan Kepribadian</p>
+                        <p><i class="<?= $dwPratik ?>"></i> Desain Web Praktik</p>
+                        <p><i class="<?= $sbdPraktik ?>"></i> Sistem Basis Data Praktik</p>
+                        <p><i class="<?= $soPraktik ?>"></i> Sistem Operasi Praktik</p>
+                        <p><i class="<?= $strukturDataPraktik ?>"></i> Struktur Data Praktik</p>
+                        <p><i class="<?= $jarkomPraktik ?>"></i> Jaringan Komputer Praktik</p>
+                        <p><i class="<?= $pboPraktik ?>"></i> PBO Praktik</p>
+                        <p><i class="<?= $pwPraktik ?>"></i> Pemrograman Web Praktik</p>
+                        <p><i class="<?= $sbdlPraktik ?>"></i> SBDL Praktik</p>
+                        <p><i class="<?= $pmPraktik ?>"></i> Pemrograman Mobile Praktik</p>
+                        <p class="text-info">Total nilai D maksimal 14 sks</p>
+                        <p><i class="<?= $presentaseD ?>"></i> Total nilai D <?= $hasilD ?> SKS</p>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 </div>

@@ -66,33 +66,35 @@
                     <h4>Export Hasil Validasi..?</h4>
                     <div class="row">
                         <div class="col">
-                            <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Nama</th>
-                                        <th scope="col">Nim</th>
-                                        <th scope="col">creted</th>
-                                        <th scope="col">updated</th>
-                                        <th scope="col">Prodi</th>
-                                        <th scope="col">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $k = 1; ?>
-                                    <?php foreach ($viewvalidasi as $vv) : ?>
+                            <div class="table-responsive">
+                                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
                                         <tr>
-                                            <td><?= $k++; ?></td>
-                                            <td><?= $vv['nama_mahasiswa']; ?></td>
-                                            <td><?= $vv['nim_mahasiswa']; ?></td>
-                                            <td><?= $vv['created_at']; ?></td>
-                                            <td><?= $vv['updated_at']; ?></td>
-                                            <td><?= $vv['prodi']; ?></td>
-                                            <td><?= $vv['hasil_validasi']; ?></td>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Nama</th>
+                                            <th scope="col">Nim</th>
+                                            <th scope="col">creted</th>
+                                            <th scope="col">updated</th>
+                                            <th scope="col">Prodi</th>
+                                            <th scope="col">Status</th>
                                         </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php $k = 1; ?>
+                                        <?php foreach ($viewvalidasi as $vv) : ?>
+                                            <tr>
+                                                <td><?= $k++; ?></td>
+                                                <td><?= $vv['nama_mahasiswa']; ?></td>
+                                                <td><?= $vv['nim_mahasiswa']; ?></td>
+                                                <td><?= $vv['created_at']; ?></td>
+                                                <td><?= $vv['updated_at']; ?></td>
+                                                <td><?= $vv['prodi']; ?></td>
+                                                <td><?= $vv['hasil_validasi']; ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
                             <script>
                                 $(document).ready(function() {
                                     var table = $('#example').DataTable({
