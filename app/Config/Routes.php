@@ -34,6 +34,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'User::index');
 $routes->get('/validasi/pdftext', 'Validasi::insert');
 // $routes->get('/validasi/pdftext', 'Validasi::pdftext');
+$routes->get('/validasi/gambartext', 'Validasi::gambartext');
+// $routes->get('/validasi/validasi/upgambar', 'Validasi::gambartext');
 $routes->get('/validasi/export', 'Validasi::export');
 $routes->get('/validasi/edit/(:segment)', 'Validasi::edit/$1');
 $routes->delete('/validasi/(:num)', 'Validasi::delete/$1');

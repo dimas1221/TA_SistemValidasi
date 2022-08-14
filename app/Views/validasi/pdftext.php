@@ -148,13 +148,14 @@ if (isset($_POST['submit'])) {
                                     $mkBing1 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // contoh matkul X
-                                // if (preg_match("/(X(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
-                                //     $mkX = 'bi bi-check-circle-fill text-success';
-                                // } else if ($pdfText == '') {
-                                //     $mkX = '';
-                                // } else {
-                                //     $mkX = 'bi bi-x-circle-fill text-danger';
-                                // }
+                                if (preg_match("/((\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
+                                    $mkX = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $mkX = '';
+                                } else {
+                                    $mkX = 'bi bi-x-circle-fill text-danger';
+                                }
+
                                 // Bhs inggris2
                                 if (preg_match("/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)i(\s|)n(\s|)g(\s|)g(\s|)r(\s|)i(\s|)s(\s|)I(\s|)I(\s|)[(]C(\s|)o(\s|)m(\s|)m(\s|)u(\s|)n(\s|)i(\s|)c(\s|)a(\s|)t(\s|)i(\s|)v(\s|)e[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkBing2 = 'bi bi-check-circle-fill text-success';
@@ -667,7 +668,8 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div> -->
                         <hr>
-                        <h5 class="text-info">Aspek yang di lihat</h5>
+                        <h5 class="text-primary">Kriteria Pengambilan Tugas Akhir</h5>
+                        <hr>
                         <p class="text-info">IPK minimal 2.5</p>
                         <p><i class="<?= $ipk ?>"></i> Index Prestasi Kumulatif(IPK)</p>
                         <p class="text-info">SKS yang di tempuh minimal 138</p>
@@ -698,6 +700,7 @@ if (isset($_POST['submit'])) {
                         <p><i class="<?= $pmPraktik ?>"></i> Pemrograman Mobile Praktik</p>
                         <p class="text-info">Total nilai D maksimal 14 sks</p>
                         <p><i class="<?= $presentaseD ?>"></i> Total nilai D <?= $hasilD ?> SKS</p>
+                        <hr>
                     </div>
                 </div>
             </div>
