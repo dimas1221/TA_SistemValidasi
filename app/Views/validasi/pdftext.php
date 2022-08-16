@@ -84,6 +84,26 @@ if (isset($_POST['submit'])) {
                                 $ambilSKS = '';
                                 $ambilKP = '';
                                 $ambilSetik = '';
+                                $ambilAgama = '';
+                                $ambilBind = '';
+                                $ambilKwn = '';
+                                $ambilBing2 = '';
+                                $ambilApti1 = '';
+                                $ambilApti2 = '';
+                                $ambilKWU = '';
+                                $ambilPK = '';
+                                $ambilDWP = '';
+                                $ambilDWP = '';
+                                $ambilSBDP = '';
+                                $ambilSOP = '';
+                                $ambilSOP = '';
+                                $ambilSDP = '';
+                                $ambilJKP = '';
+                                $ambilPBOP = '';
+                                $ambilPWP = '';
+                                $ambilSBDLP = '';
+                                $ambilPMP = '';
+                                $ambilBing1 = '';
                                 // $mkX;
                                 // regex ipk
                                 if (preg_match("/(I(\s|)P(\s|)K(\s|):(\s|)(3.)[0-9]{0,2})|(I(\s|)P(\s|)K(\s|):(\s|)(2.)[5-9]{1,2})
@@ -147,6 +167,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $mkAgama = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai agama
+                                $patternAgama = "/(A(\s|)g(\s|)a(\s|)m(\s|)a(\s|)i(\s|)s(\s|)l(\s|)a(\s|)m(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-Z|a-z])/imx";
+                                $pattern = preg_match($patternAgama, $pdfText, $matchesAgama, PREG_UNMATCHED_AS_NULL);
+                                $conversiAgama = implode("", $matchesAgama);
+                                $ambilAgama = substr($conversiAgama, 39, 1);
                                 // regex bhs indo
                                 if (preg_match("/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)I(\s|)n(\s|)d(\s|)o(\s|)n(\s|)e(\s|)s(\s|)i(\s|)a(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
                                     $mkBindo = 'bi bi-check-circle-fill text-success';
@@ -155,6 +180,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $mkBindo = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai BI
+                                $patternBind = "/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)I(\s|)n(\s|)d(\s|)o(\s|)n(\s|)e(\s|)s(\s|)i(\s|)a(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-Z|a-z])/mix";
+                                $pattern = preg_match($patternBind, $pdfText, $matchesBind, PREG_UNMATCHED_AS_NULL);
+                                $conversiBind = implode("", $matchesBind);
+                                $ambilBind = substr($conversiBind, 49, 1);
                                 // regex kwn
                                 if (preg_match("/(K(\s|)e(\s|)w(\s|)a(\s|)r(\s|)g(\s|)a(\s|)n(\s|)e(\s|)g(\s|)a(\s|)r(\s|)a(\s|)a(\s|)n(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
                                     $mkKwn = 'bi bi-check-circle-fill text-success';
@@ -163,6 +193,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $mkKwn = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai KWN
+                                $patternKWN = "/(K(\s|)e(\s|)w(\s|)a(\s|)r(\s|)g(\s|)a(\s|)n(\s|)e(\s|)g(\s|)a(\s|)r(\s|)a(\s|)a(\s|)n(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-Z|a-z])/mix";
+                                $pattern = preg_match($patternKWN, $pdfText, $matchesKWN, PREG_UNMATCHED_AS_NULL);
+                                $conversiKWN = implode("", $matchesKWN);
+                                $ambilKwn = substr($conversiKWN, 47, 1);
                                 // Mtkul minimal B
                                 // Bhs inggris1
                                 if (preg_match("/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)i(\s|)n(\s|)g(\s|)g(\s|)r(\s|)i(\s|)s(\s|)I(\s|)[(]I(\s|)n(\s|)t(\s|)e(\s|)g(\s|)r(\s|)a(\s|)t(\s|)e(\s|)d[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
@@ -172,14 +207,19 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $mkBing1 = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai BING 1
+                                $patternBing1 = "/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)i(\s|)n(\s|)g(\s|)g(\s|)r(\s|)i(\s|)s(\s|)I(\s|)[(]I(\s|)n(\s|)t(\s|)e(\s|)g(\s|)r(\s|)a(\s|)t(\s|)e(\s|)d[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-Z|a-z])/mix";
+                                $pattern = preg_match($patternBing1, $pdfText, $matchesBing1, PREG_UNMATCHED_AS_NULL);
+                                $conversiBing1 = implode("", $matchesBing1);
+                                $ambilBing1 = substr($conversiBing1, 75, 1);
                                 // contoh matkul X
-                                if (preg_match("/((\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
-                                    $mkX = 'bi bi-check-circle-fill text-success';
-                                } else if ($pdfText == '') {
-                                    $mkX = '';
-                                } else {
-                                    $mkX = 'bi bi-x-circle-fill text-danger';
-                                }
+                                // if (preg_match("/((\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
+                                //     $mkX = 'bi bi-check-circle-fill text-success';
+                                // } else if ($pdfText == '') {
+                                //     $mkX = '';
+                                // } else {
+                                //     $mkX = 'bi bi-x-circle-fill text-danger';
+                                // }
 
                                 // Bhs inggris2
                                 if (preg_match("/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)i(\s|)n(\s|)g(\s|)g(\s|)r(\s|)i(\s|)s(\s|)I(\s|)I(\s|)[(]C(\s|)o(\s|)m(\s|)m(\s|)u(\s|)n(\s|)i(\s|)c(\s|)a(\s|)t(\s|)i(\s|)v(\s|)e[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
@@ -189,6 +229,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $mkBing2 = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai BING 2
+                                $patternBing2 = "/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)i(\s|)n(\s|)g(\s|)g(\s|)r(\s|)i(\s|)s(\s|)I(\s|)I(\s|)[(]C(\s|)o(\s|)m(\s|)m(\s|)u(\s|)n(\s|)i(\s|)c(\s|)a(\s|)t(\s|)i(\s|)v(\s|)e[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix";
+                                $pattern = preg_match($patternBing2, $pdfText, $matchesBing2, PREG_UNMATCHED_AS_NULL);
+                                $conversiBing2 = implode("", $matchesBing2);
+                                $ambilBing2 = substr($conversiBing2, 83, 1);
                                 // Apti 1
                                 if (preg_match("/(A(\s|)p(\s|)l(\s|)i(\s|)k(\s|)a(\s|)s(\s|)i(\s|)T(\s|)e(\s|)k(\s|)n(\s|)o(\s|)l(\s|)o(\s|)g(\s|)i(\s|)I(\s|)n(\s|)f(\s|)o(\s|)r(\s|)m(\s|)a(\s|)s(\s|)i(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkapti1 = 'bi bi-check-circle-fill text-success';
@@ -197,6 +242,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $mkapti1 = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai APti1
+                                $patternApti1 = "/(A(\s|)p(\s|)l(\s|)i(\s|)k(\s|)a(\s|)s(\s|)i(\s|)T(\s|)e(\s|)k(\s|)n(\s|)o(\s|)l(\s|)o(\s|)g(\s|)i(\s|)I(\s|)n(\s|)f(\s|)o(\s|)r(\s|)m(\s|)a(\s|)s(\s|)i(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-Z|a-z])/mix";
+                                $pattern = preg_match($patternApti1, $pdfText, $matchesApti1, PREG_UNMATCHED_AS_NULL);
+                                $conversiApti1 = implode("", $matchesApti1);
+                                $ambilApti1 = substr($conversiApti1, 79, 1);
                                 // Apti 2
                                 if (preg_match("/(A(\s|)p(\s|)l(\s|)i(\s|)k(\s|)a(\s|)s(\s|)i(\s|)T(\s|)e(\s|)k(\s|)n(\s|)o(\s|)l(\s|)o(\s|)g(\s|)i(\s|)I(\s|)n(\s|)f(\s|)o(\s|)r(\s|)m(\s|)a(\s|)s(\s|)i(\s|)I(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkapti2 = 'bi bi-check-circle-fill text-success';
@@ -205,6 +255,10 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $mkapti2 = 'bi bi-x-circle-fill text-danger';
                                 }
+                                $patternApti2 = "/(A(\s|)p(\s|)l(\s|)i(\s|)k(\s|)a(\s|)s(\s|)i(\s|)T(\s|)e(\s|)k(\s|)n(\s|)o(\s|)l(\s|)o(\s|)g(\s|)i(\s|)I(\s|)n(\s|)f(\s|)o(\s|)r(\s|)m(\s|)a(\s|)s(\s|)i(\s|)I(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-Z|a-z])/mix";
+                                $pattern = preg_match($patternApti2, $pdfText, $matchesApti2, PREG_UNMATCHED_AS_NULL);
+                                $conversiApti2 = implode("", $matchesApti2);
+                                $ambilApti2 = substr($conversiApti2, 81, 1);
                                 // KWU
                                 if (preg_match("/(K(\s|)e(\s|)w(\s|)i(\s|)r(\s|)a(\s|)u(\s|)s(\s|)a(\s|)h(\s|)a(\s|)a(\s|)n(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkKwu = 'bi bi-check-circle-fill text-success';
@@ -213,6 +267,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $mkKwu = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai KWU
+                                $patternKWU = "/(K(\s|)e(\s|)w(\s|)i(\s|)r(\s|)a(\s|)u(\s|)s(\s|)a(\s|)h(\s|)a(\s|)a(\s|)n(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-Z|a-z])/mix";
+                                $pattern = preg_match($patternKWU, $pdfText, $matchesKWU, PREG_UNMATCHED_AS_NULL);
+                                $conversiKWU = implode("", $matchesKWU);
+                                $ambilKWU = substr($conversiKWU, 43, 1);
                                 // PK
                                 if (preg_match("/(P(\s|)e(\s|)n(\s|)g(\s|)e(\s|)m(\s|)b(\s|)a(\s|)n(\s|)g(\s|)a(\s|)n(\s|)K(\s|)e(\s|)p(\s|)r(\s|)i(\s|)b(\s|)a(\s|)d(\s|)i(\s|)a(\s|)n(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkPK = 'bi bi-check-circle-fill text-success';
@@ -221,6 +280,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $mkPK = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai PK
+                                $patternPK = "/(P(\s|)e(\s|)n(\s|)g(\s|)e(\s|)m(\s|)b(\s|)a(\s|)n(\s|)g(\s|)a(\s|)n(\s|)K(\s|)e(\s|)p(\s|)r(\s|)i(\s|)b(\s|)a(\s|)d(\s|)i(\s|)a(\s|)n(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-Z|a-z])/mix";
+                                $pattern = preg_match($patternPK, $pdfText, $matchesPK, PREG_UNMATCHED_AS_NULL);
+                                $conversiPK = implode("", $matchesPK);
+                                $ambilPK = substr($conversiPK, 65, 1);
                                 // nilai praktik minimal B
                                 $dwPratik;
                                 $sbdPraktik;
@@ -240,6 +304,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $dwPratik = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai DWP
+                                $patternDWP = "/(D(\s|)e(\s|)s(\s|)a(\s|)i(\s|)n(\s|)W(\s|)e(\s|)b(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-Z|a-z])/mix";
+                                $pattern = preg_match($patternDWP, $pdfText, $matchesDWP, PREG_UNMATCHED_AS_NULL);
+                                $conversiDWP = implode("", $matchesDWP);
+                                $ambilDWP = substr($conversiDWP, 51, 1);
                                 // SBD praktik
                                 if (preg_match("/(S(\s|)i(\s|)s(\s|)t(\s|)e(\s|)m(\s|)B(\s|)a(\s|)s(\s|)i(\s|)s(\s|)D(\s|)a(\s|)t(\s|)a(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $sbdPraktik = 'bi bi-check-circle-fill text-success';
@@ -248,6 +317,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $sbdPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai SBDP
+                                $patternSBDP = "/(S(\s|)i(\s|)s(\s|)t(\s|)e(\s|)m(\s|)B(\s|)a(\s|)s(\s|)i(\s|)s(\s|)D(\s|)a(\s|)t(\s|)a(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-Z|a-z])/mix";
+                                $pattern = preg_match($patternSBDP, $pdfText, $matchesSBDP, PREG_UNMATCHED_AS_NULL);
+                                $conversiSBDP = implode("", $matchesSBDP);
+                                $ambilSBDP = substr($conversiSBDP, 65, 1);
                                 // So praktik
                                 if (preg_match("/(S(\s|)i(\s|)s(\s|)t(\s|)e(\s|)m(\s|)O(\s|)p(\s|)e(\s|)r(\s|)a(\s|)s(\s|)i(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $soPraktik = 'bi bi-check-circle-fill text-success';
@@ -256,6 +330,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $soPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai SOP
+                                $patternSOP = "/(S(\s|)i(\s|)s(\s|)t(\s|)e(\s|)m(\s|)O(\s|)p(\s|)e(\s|)r(\s|)a(\s|)s(\s|)i(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-Z|a-z])/mix";
+                                $pattern = preg_match($patternSOP, $pdfText, $matchesSOP, PREG_UNMATCHED_AS_NULL);
+                                $conversiSOP = implode("", $matchesSOP);
+                                $ambilSOP = substr($conversiSOP, 59, 1);
                                 // Struktur data praktik
                                 if (preg_match("/(S(\s|)t(\s|)r(\s|)u(\s|)k(\s|)t(\s|)u(\s|)r(\s|)D(\s|)a(\s|)t(\s|)a(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $strukturDataPraktik = 'bi bi-check-circle-fill text-success';
@@ -704,26 +783,26 @@ if (isset($_POST['submit'])) {
                         <p><i class="<?= $setik ?>"></i> Seminar Tematik (<?= $ambilSetik ?>)</p>
                         <p class="text-info">Mk wajib minimal C</p>
                         <!-- <p><i class="< $mkX ?>"></i> Mata kuliah X</p> -->
-                        <p><i class="<?= $mkAgama ?>"></i> Agama</p>
-                        <p><i class="<?= $mkBindo ?>"></i> Bahasa Indonesia</p>
-                        <p><i class="<?= $mkKwn ?>"></i> Kewarganegaaan</p>
-                        <p><i class="<?= $mkBing2 ?>"></i> Bahasa Inggris II(Communicative)</p>
+                        <p><i class="<?= $mkAgama ?>"></i> Agama (<?= $ambilAgama; ?>)</p>
+                        <p><i class="<?= $mkBindo ?>"></i> Bahasa Indonesia (<?= $ambilBind ?>)</p>
+                        <p><i class="<?= $mkKwn ?>"></i> Kewarganegaraan (<?= $ambilKwn; ?>)</p>
+                        <p><i class="<?= $mkBing2 ?>"></i> Bahasa Inggris II(Communicative) (<?= $ambilBing2; ?>)</p>
                         <p class="text-info">Mk wajib minimal B</p>
-                        <p><i class="<?= $mkBing1 ?>"></i> Bahasa Inggris I(Integrated)</p>
+                        <p><i class="<?= $mkBing1 ?>"></i> Bahasa Inggris I(Integrated) (<?= $ambilBing1; ?>)</p>
 
-                        <p><i class="<?= $mkapti1 ?>"></i> Aplikasi Teknologi Informasi I</p>
-                        <p><i class="<?= $mkapti2 ?>"></i> Aplikasi Teknologi Informasi II</p>
-                        <p><i class="<?= $mkKwu ?>"></i> Kewirausahaan</p>
-                        <p><i class="<?= $mkPK ?>"></i> Pengembangan Kepribadian</p>
-                        <p><i class="<?= $dwPratik ?>"></i> Desain Web Praktik</p>
-                        <p><i class="<?= $sbdPraktik ?>"></i> Sistem Basis Data Praktik</p>
-                        <p><i class="<?= $soPraktik ?>"></i> Sistem Operasi Praktik</p>
-                        <p><i class="<?= $strukturDataPraktik ?>"></i> Struktur Data Praktik</p>
-                        <p><i class="<?= $jarkomPraktik ?>"></i> Jaringan Komputer Praktik</p>
-                        <p><i class="<?= $pboPraktik ?>"></i> PBO Praktik</p>
-                        <p><i class="<?= $pwPraktik ?>"></i> Pemrograman Web Praktik</p>
-                        <p><i class="<?= $sbdlPraktik ?>"></i> SBDL Praktik</p>
-                        <p><i class="<?= $pmPraktik ?>"></i> Pemrograman Mobile Praktik</p>
+                        <p><i class="<?= $mkapti1 ?>"></i> Aplikasi Teknologi Informasi I (<?= $ambilApti1 ?>)</p>
+                        <p><i class="<?= $mkapti2 ?>"></i> Aplikasi Teknologi Informasi II (<?= $ambilApti2 ?>)</p>
+                        <p><i class="<?= $mkKwu ?>"></i> Kewirausahaan (<?= $ambilKWU ?>)</p>
+                        <p><i class="<?= $mkPK ?>"></i> Pengembangan Kepribadian (<?= $ambilPK ?>)</p>
+                        <p><i class="<?= $dwPratik ?>"></i> Desain Web Praktik (<?= $ambilDWP ?>)</p>
+                        <p><i class="<?= $sbdPraktik ?>"></i> Sistem Basis Data Praktik (<?= $ambilSBDP ?>)</p>
+                        <p><i class="<?= $soPraktik ?>"></i> Sistem Operasi Praktik (<?= $ambilSOP ?>)</p>
+                        <!-- <p><i class="<?= $strukturDataPraktik ?>"></i> Struktur Data Praktik (<?= $ambilSDP ?>)</p>
+                        <p><i class="<?= $jarkomPraktik ?>"></i> Jaringan Komputer Praktik (<?= $ambilJKP ?>)</p>
+                        <p><i class="<?= $pboPraktik ?>"></i> PBO Praktik (<?= $ambilPBOP ?>)</p>
+                        <p><i class="<?= $pwPraktik ?>"></i> Pemrograman Web Praktik (<?= $ambilPWP ?>)</p>
+                        <p><i class="<?= $sbdlPraktik ?>"></i> SBDL Praktik (<?= $ambilSBDLP ?>)</p>
+                        <p><i class="<?= $pmPraktik ?>"></i> Pemrograman Mobile Praktik (<?= $ambilPMP ?>)</p> -->
                         <p class="text-info">Total nilai D maksimal 14 sks</p>
                         <p><i class="<?= $presentaseD ?>"></i> Total nilai D <?= $hasilD ?> SKS</p>
                         <hr>
