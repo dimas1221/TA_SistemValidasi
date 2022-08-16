@@ -79,6 +79,11 @@ if (isset($_POST['submit'])) {
                                 $mkKwu = '';
                                 $mkPK = '';
                                 $setik = '';
+                                // variabel ambil nilai regex
+                                $nilaiIPK = '';
+                                $ambilSKS = '';
+                                $ambilKP = '';
+                                $ambilSetik = '';
                                 // $mkX;
                                 // regex ipk
                                 if (preg_match("/(I(\s|)P(\s|)K(\s|):(\s|)(3.)[0-9]{0,2})|(I(\s|)P(\s|)K(\s|):(\s|)(2.)[5-9]{1,2})
@@ -89,6 +94,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $ipk = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai ipk
+                                $patternIPK = "/(I(\s|)P(\s|)K(\s|):(\s|)[0-9]{0,2}.[0-9]{0,2})/mix";
+                                $pattern = preg_match($patternIPK, $pdfText, $matchesIPK, PREG_UNMATCHED_AS_NULL);
+                                $conversiIPK = implode("", $matchesIPK);
+                                $hasilIPK = substr($conversiIPK, 6, 4);
                                 // regex sks
                                 if (preg_match("/T(\s|)o(\s|)t(\s|)a(\s|)l(\s|)S(\s|)K(\s|)S(\s|):(\s|)((13)[8-9])|T(\s|)o(\s|)t(\s|)a(\s|)l(\s|)S(\s|)K(\s|)S(\s|):(\s|)((14)[0-9])/mix", $pdfText)) {
                                     $sks = 'bi bi-check-circle-fill text-success';
@@ -97,6 +107,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $sks = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai sks
+                                $patternSKS = "/T(\s|)o(\s|)t(\s|)a(\s|)l(\s|)S(\s|)K(\s|)S(\s|):(\s|)([0-9]{0,3})/mix";
+                                $pattern = preg_match($patternSKS, $pdfText, $matchesSKS, PREG_UNMATCHED_AS_NULL);
+                                $conversiSKS = implode("", $matchesSKS);
+                                $ambilSKS = substr($conversiSKS, 12, 3);
                                 // regex KP
                                 if (preg_match("/(K(\s|)e(\s|)r(\s|)j(\s|)a(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)3(\s|)[0-9]{0,2}(\s|)(\s|)(\d|){0,3}[A-B|a-b])/mix", $pdfText)) {
                                     $kp = 'bi bi-check-circle-fill text-success';
@@ -105,6 +120,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $kp = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai KP
+                                $patternKP = "/(K(\s|)e(\s|)r(\s|)j(\s|)a(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)3(\s|)[0-9]{0,2}(\s|)(\s|)(\d|){0,3}[A-Z|a-z])/mix";
+                                $pattern = preg_match($patternKP, $pdfText, $matchesKP, PREG_UNMATCHED_AS_NULL);
+                                $conversiKP = implode("", $matchesKP);
+                                $ambilKP = substr($conversiKP, 37, 1);
                                 // regex setik
                                 if (preg_match("/(S(\s|)e(\s|)m(\s|)i(\s|)n(\s|)a(\s|)r(\s|)T(\s|)e(\s|)m(\s|)a(\s|)t(\s|)i(\s|)k(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $setik = 'bi bi-check-circle-fill text-success';
@@ -113,6 +133,11 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $setik = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // mengambil nilai SETIK
+                                $patternSetik = "/(S(\s|)e(\s|)m(\s|)i(\s|)n(\s|)a(\s|)r(\s|)T(\s|)e(\s|)m(\s|)a(\s|)t(\s|)i(\s|)k(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)[A-B|a-b])/mix";
+                                $pattern = preg_match($patternSetik, $pdfText, $matchesSetik, PREG_UNMATCHED_AS_NULL);
+                                $conversiSetik = implode("", $matchesSetik);
+                                $ambilSetik = substr($conversiKP, 37, 1);
                                 // MINIMAL C
                                 // regex matkul agama
                                 if (preg_match("/(A(\s|)g(\s|)a(\s|)m(\s|)a(\s|)i(\s|)s(\s|)l(\s|)a(\s|)m(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/imx", $pdfText)) {
@@ -157,7 +182,7 @@ if (isset($_POST['submit'])) {
                                 }
 
                                 // Bhs inggris2
-                                if (preg_match("/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)i(\s|)n(\s|)g(\s|)g(\s|)r(\s|)i(\s|)s(\s|)I(\s|)I(\s|)[(]C(\s|)o(\s|)m(\s|)m(\s|)u(\s|)n(\s|)i(\s|)c(\s|)a(\s|)t(\s|)i(\s|)v(\s|)e[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)i(\s|)n(\s|)g(\s|)g(\s|)r(\s|)i(\s|)s(\s|)I(\s|)I(\s|)[(]C(\s|)o(\s|)m(\s|)m(\s|)u(\s|)n(\s|)i(\s|)c(\s|)a(\s|)t(\s|)i(\s|)v(\s|)e[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
                                     $mkBing2 = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkBing2 = '';
@@ -671,20 +696,21 @@ if (isset($_POST['submit'])) {
                         <h5 class="text-primary">Kriteria Pengambilan Tugas Akhir</h5>
                         <hr>
                         <p class="text-info">IPK minimal 2.5</p>
-                        <p><i class="<?= $ipk ?>"></i> Index Prestasi Kumulatif(IPK)</p>
+                        <p><i class="<?= $ipk ?>"></i> Index Prestasi Kumulatif(IPK) <?= $hasilIPK; ?></p>
                         <p class="text-info">SKS yang di tempuh minimal 138</p>
-                        <p><i class="<?= $sks ?>"></i> Total Sks</p>
+                        <p><i class="<?= $sks ?>"></i> Total Sks (<?= $ambilSKS ?>)</p>
                         <p class="text-info">lulus MK KP dan Setik</p>
-                        <p><i class="<?= $kp ?>"></i> Kerja Praktik</p>
-                        <p><i class="<?= $setik ?>"></i> Seminar Tematik</p>
+                        <p><i class="<?= $kp ?>"></i> Kerja Praktik (<?= $ambilKP; ?>)</p>
+                        <p><i class="<?= $setik ?>"></i> Seminar Tematik (<?= $ambilSetik ?>)</p>
                         <p class="text-info">Mk wajib minimal C</p>
                         <!-- <p><i class="< $mkX ?>"></i> Mata kuliah X</p> -->
                         <p><i class="<?= $mkAgama ?>"></i> Agama</p>
                         <p><i class="<?= $mkBindo ?>"></i> Bahasa Indonesia</p>
                         <p><i class="<?= $mkKwn ?>"></i> Kewarganegaaan</p>
+                        <p><i class="<?= $mkBing2 ?>"></i> Bahasa Inggris II(Communicative)</p>
                         <p class="text-info">Mk wajib minimal B</p>
                         <p><i class="<?= $mkBing1 ?>"></i> Bahasa Inggris I(Integrated)</p>
-                        <p><i class="<?= $mkBing2 ?>"></i> Bahasa Inggris II(Communicative)</p>
+
                         <p><i class="<?= $mkapti1 ?>"></i> Aplikasi Teknologi Informasi I</p>
                         <p><i class="<?= $mkapti2 ?>"></i> Aplikasi Teknologi Informasi II</p>
                         <p><i class="<?= $mkKwu ?>"></i> Kewirausahaan</p>

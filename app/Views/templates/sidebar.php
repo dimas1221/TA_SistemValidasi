@@ -15,10 +15,13 @@
                 <li><a class="nav-link" href="/validasi/pengajuan_ta"><i class="bi bi-file-arrow-up-fill text-primary"></i> <span>Pengajuan TA</span></a></li>
             <?php endif; ?>
             <?php if (in_groups('admin')) : ?>
-                <li><a class="nav-link" href="/validasi/pdftext"><i class="bi bi-pencil-square text-primary"></i></i><span>Validasi</span></a></li>
-            <?php endif; ?>
-            <?php if (in_groups('admin')) : ?>
-                <li><a class="nav-link" href="/validasi/gambartext"><i class="bi bi-pencil-square text-primary"></i></i><span>Validasi gambar</span></a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link has-dropdown"></i><i class="bi bi-pencil-square text-primary"></i><span>Validation</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="nav-link" href="/validasi/pdftext">KHS PDF</a></li>
+                        <li><a class="nav-link" href="/validasi/gambartext">KHS Image</a></li>
+                    </ul>
+                </li>
             <?php endif; ?>
             <?php if (in_groups('admin')) : ?>
                 <li><a class="nav-link" href="/validasi"><i class="bi bi-people text-primary"></i> <span>Hasil Validasi</span></a></li>
