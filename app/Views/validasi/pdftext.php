@@ -157,7 +157,7 @@ if (isset($_POST['submit'])) {
                                 $patternSetik = "/(S(\s|)e(\s|)m(\s|)i(\s|)n(\s|)a(\s|)r(\s|)T(\s|)e(\s|)m(\s|)a(\s|)t(\s|)i(\s|)k(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)[A-B|a-b])/mix";
                                 $pattern = preg_match($patternSetik, $pdfText, $matchesSetik, PREG_UNMATCHED_AS_NULL);
                                 $conversiSetik = implode("", $matchesSetik);
-                                $ambilSetik = substr($conversiKP, 37, 1);
+                                $ambilSetik = substr($conversiSetik, 37, 1);
                                 // MINIMAL C
                                 // regex matkul agama
                                 if (preg_match("/(A(\s|)g(\s|)a(\s|)m(\s|)a(\s|)i(\s|)s(\s|)l(\s|)a(\s|)m(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/imx", $pdfText)) {
